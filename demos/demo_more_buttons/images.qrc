@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>demo_more_buttons/switch_off.png</file>
+        <file>demo_more_buttons/switch_on.png</file>
+        <file>radiobutton.qss</file>
+    </qresource>
+</RCC>

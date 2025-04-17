@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_MultiWindow_FILE /home/charliechen/imx6ull/qt683_project/MultiWindow/build/Desktop_Qt_6_8_3-Debug/MultiWindow)
+set(__QT_DEPLOY_TARGET_MultiWindow_TYPE EXECUTABLE)

@@ -1,0 +1,15 @@
+QRadioButton{
+    spacing: 2px;
+    color: white;
+}
+QRadioButton::indicator {
+    width: 45px;
+    height: 30px;
+}
+
+QRadioButton::indicator:unchecked {
+    image: url(:/demo_more_buttons/switch_off.png);
+}
+QRadioButton::indicator:checked {
+    image: url(:/demo_more_buttons/switch_on.png);
+}

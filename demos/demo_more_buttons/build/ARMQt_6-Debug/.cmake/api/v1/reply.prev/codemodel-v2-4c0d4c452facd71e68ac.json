@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-29fbe11daa92314dd8e2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "demo_more_buttons",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_more_buttons::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_more_buttons-Debug-84abcbd94b8e557f8669.json",
+					"name" : "demo_more_buttons",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_more_buttons_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_more_buttons_autogen-Debug-fa617c9d80a20e4b6980.json",
+					"name" : "demo_more_buttons_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_more_buttons_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_more_buttons_autogen_timestamp_deps-Debug-20f8a5dd8795e1343d0c.json",
+					"name" : "demo_more_buttons_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug",
+		"source" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

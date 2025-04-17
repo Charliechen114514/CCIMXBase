@@ -1,0 +1,25 @@
+{
+	"BUILD_DIR" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug/demo_more_buttons_autogen",
+	"CMAKE_BINARY_DIR" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons",
+	"CMAKE_SOURCE_DIR" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons",
+	"GENERATOR" : "Unix Makefiles",
+	"INCLUDE_DIR" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug/demo_more_buttons_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/charliechen/imx6ull/qt683_project/demo_more_buttons/radiobutton.qss",
+		"/home/charliechen/imx6ull/qt683_project/demo_more_buttons/demo_more_buttons/switch_on.png",
+		"/home/charliechen/imx6ull/qt683_project/demo_more_buttons/demo_more_buttons/switch_off.png"
+	],
+	"LOCK_FILE" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug/CMakeFiles/demo_more_buttons_autogen.dir/AutoRcc_images_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "images" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_images.cpp",
+	"RCC_EXECUTABLE" : "/home/charliechen/Qt/6.8.3/gcc_64/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug/CMakeFiles/demo_more_buttons_autogen.dir/AutoRcc_images_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/charliechen/imx6ull/qt683_project/demo_more_buttons/images.qrc",
+	"VERBOSITY" : 0
+}

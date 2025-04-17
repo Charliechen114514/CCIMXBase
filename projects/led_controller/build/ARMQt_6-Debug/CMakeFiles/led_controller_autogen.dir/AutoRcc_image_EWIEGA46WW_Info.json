@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug/led_controller_autogen",
+	"CMAKE_BINARY_DIR" : "/home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/charliechen/imx6ull/qt683_project/led_controller",
+	"CMAKE_SOURCE_DIR" : "/home/charliechen/imx6ull/qt683_project/led_controller",
+	"GENERATOR" : "Unix Makefiles",
+	"INCLUDE_DIR" : "/home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug/led_controller_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/charliechen/imx6ull/qt683_project/led_controller/images/closed.png",
+		"/home/charliechen/imx6ull/qt683_project/led_controller/images/open.png"
+	],
+	"LOCK_FILE" : "/home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug/CMakeFiles/led_controller_autogen.dir/AutoRcc_image_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "image" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_image.cpp",
+	"RCC_EXECUTABLE" : "/home/charliechen/Qt/6.8.3/gcc_64/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug/CMakeFiles/led_controller_autogen.dir/AutoRcc_image_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/charliechen/imx6ull/qt683_project/led_controller/image.qrc",
+	"VERBOSITY" : 0
+}

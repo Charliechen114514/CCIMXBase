@@ -1,0 +1,15 @@
+# ninja log v6
+2	943	1744844707531313315	MultiWindow_autogen/timestamp	cf72c9e7971af5a7
+2	943	1744844707531313315	MultiWindow_autogen/mocs_compilation.cpp	cf72c9e7971af5a7
+2	943	1744844707531313315	/home/charliechen/imx6ull/qt683_project/MultiWindow/build/Desktop_Qt_6_8_3-Debug/MultiWindow_autogen/timestamp	cf72c9e7971af5a7
+2	943	1744844707531313315	/home/charliechen/imx6ull/qt683_project/MultiWindow/build/Desktop_Qt_6_8_3-Debug/MultiWindow_autogen/mocs_compilation.cpp	cf72c9e7971af5a7
+944	5901	1744844707565314066	CMakeFiles/MultiWindow.dir/MultiWindow_autogen/mocs_compilation.cpp.o	2650bc3160ea902e
+948	6062	1744844707569314154	CMakeFiles/MultiWindow.dir/main.cpp.o	becc14c1a4d1661a
+951	6587	1744844707572314221	CMakeFiles/MultiWindow.dir/mainwindow.cpp.o	d0d1ee8d4e54d4c0
+6587	7027	1744844713208435027	MultiWindow	cdcd5cd5ae0e05bd
+6	63	1744844732904806743	MultiWindow_autogen/timestamp	cf72c9e7971af5a7
+6	63	1744844732904806743	MultiWindow_autogen/mocs_compilation.cpp	cf72c9e7971af5a7
+6	63	1744844732904806743	/home/charliechen/imx6ull/qt683_project/MultiWindow/build/Desktop_Qt_6_8_3-Debug/MultiWindow_autogen/timestamp	cf72c9e7971af5a7
+6	63	1744844732904806743	/home/charliechen/imx6ull/qt683_project/MultiWindow/build/Desktop_Qt_6_8_3-Debug/MultiWindow_autogen/mocs_compilation.cpp	cf72c9e7971af5a7
+63	5611	1744844732961807724	CMakeFiles/MultiWindow.dir/mainwindow.cpp.o	d0d1ee8d4e54d4c0
+5611	6038	1744844738509900318	MultiWindow	cdcd5cd5ae0e05bd

@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_demo_combo_box_FILE /home/charliechen/imx6ull/qt683_project/demo_combo_box/build/Desktop_Qt_6_8_3-Debug/demo_combo_box)
+set(__QT_DEPLOY_TARGET_demo_combo_box_TYPE EXECUTABLE)

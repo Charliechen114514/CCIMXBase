@@ -1,0 +1,9 @@
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/demo_pushbutton.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/edit_cache.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/rebuild_cache.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/list_install_components.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/install.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/install/local.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/install/strip.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/demo_pushbutton_autogen_timestamp_deps.dir
+/home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/CMakeFiles/demo_pushbutton_autogen.dir

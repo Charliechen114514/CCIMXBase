@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-6f58eb51fb2db6530f80.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "demo_combo_box",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_combo_box::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_combo_box-Debug-3519a817e80eab092867.json",
+					"name" : "demo_combo_box",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_combo_box_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_combo_box_autogen-Debug-a891993fa25b61b4fb65.json",
+					"name" : "demo_combo_box_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_combo_box_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_combo_box_autogen_timestamp_deps-Debug-1a01b850e23ee839d255.json",
+					"name" : "demo_combo_box_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/charliechen/imx6ull/qt683_project/demo_combo_box/build/ARMQt_6-Debug",
+		"source" : "/home/charliechen/imx6ull/qt683_project/demo_combo_box"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
