@@ -1,32 +1,80 @@
-# Prerequisites
-*.d
+# 编译输出目录（可以根据你使用的目录名修改）
+build*/
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
 
-# Compiled Object files
-*.slo
-*.lo
+# Qt Creator 自动生成的文件
+*.autosave
+*.creator.*
+*.files
+*.includes
+*.config
+*.creator
+*.creator.user
+*.creator.user.*
+*.qmlproject.user
+*.qmlproject.user.*
+
+# 编译中间文件
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
+*.lo
 *.la
+*.al
+*.libs
+*.so
+*.so.*
 *.a
 *.lib
-
-# Executables
+*.dll
 *.exe
-*.out
 *.app
+*.dylib
+
+# moc、rcc、ui 自动生成的中间文件
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+
+# CMake 中间文件和输出目录
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
+
+# QML 缓存（如果你使用了 QML 引擎）
+.qmlcache/
+*.qmlc
+*.jsc
+
+# Windows 特有
+Thumbs.db
+Desktop.ini
+
+# macOS 特有
+.DS_Store
+
+# Linux 特有
+*~
+
+# VS Code
+.vscode/
+
+# Qt 安装的部署临时目录
+deploy/
+
+# 自定义中间文件目录（如你手动指定了某些缓存目录，也可以加入）
+
