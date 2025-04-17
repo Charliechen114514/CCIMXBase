@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_demo_combo_box_FILE /home/charliechen/imx6ull/qt683_project/demo_combo_box/build/ARMQt_6-Debug/demo_combo_box)
-set(__QT_DEPLOY_TARGET_demo_combo_box_TYPE EXECUTABLE)

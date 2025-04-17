@@ -1,9 +1,0 @@
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/showImage.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/edit_cache.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/rebuild_cache.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/list_install_components.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/install.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/install/local.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/install/strip.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/showImage_autogen_timestamp_deps.dir
-/home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/showImage_autogen.dir

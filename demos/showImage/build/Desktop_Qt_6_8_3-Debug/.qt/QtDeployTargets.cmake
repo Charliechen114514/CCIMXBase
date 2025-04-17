@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_showImage_FILE /home/charliechen/imx6ull/qt683_project/showImage/build/Desktop_Qt_6_8_3-Debug/showImage)
-set(__QT_DEPLOY_TARGET_showImage_TYPE EXECUTABLE)

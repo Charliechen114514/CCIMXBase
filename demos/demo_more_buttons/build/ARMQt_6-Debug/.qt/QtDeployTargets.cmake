@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_demo_more_buttons_FILE /home/charliechen/imx6ull/qt683_project/demo_more_buttons/build/ARMQt_6-Debug/demo_more_buttons)
-set(__QT_DEPLOY_TARGET_demo_more_buttons_TYPE EXECUTABLE)

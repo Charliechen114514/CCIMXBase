@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_led_controller_FILE /home/charliechen/imx6ull/qt683_project/led_controller/build/ARMQt_6-Debug/led_controller)
-set(__QT_DEPLOY_TARGET_led_controller_TYPE EXECUTABLE)

@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_demo_pushbutton_FILE /home/charliechen/imx6ull/qt683_project/demo_pushbutton/build/ARMQt_6-Debug/demo_pushbutton)
-set(__QT_DEPLOY_TARGET_demo_pushbutton_TYPE EXECUTABLE)
