@@ -1,0 +1,12 @@
+{
+    "linuxKernelRoot": "/home/charliechen/imx6ull/linux-imx",
+    "files.associations": {
+        "driver_base.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "span": "c",
+        "ioctl.h": "c",
+        "format": "c"
+    }
+}

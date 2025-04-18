@@ -1,0 +1,14 @@
+{
+    "linuxKernelRoot": "/home/charliechen/imx6ull/linux-imx",
+    "files.associations": {
+        "cdev.h": "c",
+        "of_address.h": "c",
+        "charconv": "c",
+        "chrono": "c",
+        "format": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "type_traits": "c"
+    }
+}
