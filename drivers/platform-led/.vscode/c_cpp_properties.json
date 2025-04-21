@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "kernel_dev",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:linuxKernelRoot}/include",
+                "${config:linuxKernelRoot}/arch/arm/include",
+                "${config:linuxKernelRoot}/arch/arm/include/generated"
+            ],
+            "defines": [                
+                "__GNUC__",
+                "__KERNEL__",
+                "MODULE"
+            ],
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
