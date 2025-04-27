@@ -23,6 +23,7 @@ public:
 private:
     Ui::DownDockWidget*         ui;
     QList<AppWidget*>           dock_apps;
+    QWidget*                    internal_widget;
     void                        replace_docks();
 };
 

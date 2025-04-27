@@ -6,7 +6,6 @@
 #include <QStackedWidget>
 #define MAX_WIDTH   (4)
 #define MAX_HEIGHT  (4)
-
 /* create for a page append */
 QList<AppWidget *>
 PageSetuper::create_one_app_only_page_append(
@@ -22,7 +21,11 @@ PageSetuper::create_one_app_only_page_append(
     for(const auto& session : sessionRequest)
     {
         AppWidget* app = new AppWidget(
-            QPixmap(session.pixmap_addr).scaled(48, 48, Qt::KeepAspectRatio, Qt::SmoothTransformation), session.app_name, mainWindow);
+            QPixmap(session.pixmap_addr).scaled(
+                PageSetuper::APP_ICON_SZ, PageSetuper::APP_ICON_SZ,
+                Qt::KeepAspectRatio, Qt::SmoothTransformation),
+            session.app_name, mainWindow);
+
         app->bindApp(session.app);
         appsWidgets << app;
         QObject::connect(app, &AppWidget::postAppStatus, mainWindow, &DesktopMainWindow::handle_app_status);
@@ -44,11 +47,19 @@ void PageSetuper::add_to_dock(
     QList<AppWidget *> copys;
     for(const auto& each : widgets)
     {
-        AppWidget* app = new AppWidget(each->icon(), each->app_name(), each->parentWidget());
+        AppWidget* app = new AppWidget(each->icon().scaled(PageSetuper::APP_ICON_SZ, PageSetuper::APP_ICON_SZ, Qt::KeepAspectRatio, Qt::SmoothTransformation), each->app_name(), downdock);
         app->bindApp(each->get_app());
+        app->showIconOnly(true);
         copys << app;
         QObject::connect(app, &AppWidget::postAppStatus, mainWindow, &DesktopMainWindow::handle_app_status);
     }
 
     downdock->set_dock_apps(copys);
+}
+
+/* All mappings are defined, thus add directly is OK */
+void PageSetuper::
+create_specified_page(QStackedWidget *widget, QWidget *paged_widget)
+{
+    widget->addWidget(paged_widget);
 }

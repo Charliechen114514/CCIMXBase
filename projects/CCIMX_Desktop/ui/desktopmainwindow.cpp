@@ -5,8 +5,12 @@
 #include "ui_desktopmainwindow.h"
 #include "app_wrapper/applicationwrapper.h"
 #include "ui/desktoptoast.h"
+#include "ui/wallpaperanimationhandler.h"
 #include "ui/stackpage_switcher_animation.h"
 #include "app_wrapper/pagesetuper.h"
+#include "core/coretools.h"
+
+#include <QTimer>
 DesktopMainWindow::DesktopMainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::DesktopMainWindow)
@@ -25,18 +29,45 @@ void DesktopMainWindow::post_setupui()
 
 void DesktopMainWindow::setup_bg_image()
 {
-    wallpaperLabel = new QLabel(this);
-    wallpaperLabel->setScaledContents(true);
-    wallpaperLabel->lower();
-    wallpaperLabel->setGeometry(0, 0, width(), height());
+    wallPaperGroup.wallpaperLabel = new QLabel(this);
+    wallPaperGroup.wallpaperLabel->setScaledContents(true);
+    wallPaperGroup.wallpaperLabel->lower();
+    wallPaperGroup.wallpaperLabel->setGeometry(0, 0, width(), height());
 
-    QPixmap wallpaper(":/icons/sources/bg.png");
-    wallpaperLabel->setPixmap(wallpaper);
+    wallPaperGroup.bufferpaperLabel = new QLabel(this);
+    wallPaperGroup.bufferpaperLabel->setScaledContents(true);
+    wallPaperGroup.bufferpaperLabel->lower();
+    wallPaperGroup.bufferpaperLabel->setGeometry(0, 0, width(), height());
+    wallPaperGroup.bufferpaperLabel->hide();
+    wallPaperGroup.shoule_be_lower = centralWidget();
+    /* now collect all the images */
+#ifdef ARM_BUILD
+    image_lists << CoreTools::enumeratefiles("/home/charliechen/Pictures", {"*.png"});
+#else
+    image_lists << CoreTools::enumeratefiles("/home/charliechen/Pictures", {"*.png"});
+#endif
+    if(!image_lists.isEmpty()){
+        wallPaperGroup.wallpaperLabel->setPixmap(QPixmap(image_lists[0]));
+    }
+
+    wallPaperGroup.invoke_switch_timer = new QTimer(this);
+    wallPaperGroup.invoke_switch_timer->setInterval(switch_bg_time);
+    connect(wallPaperGroup.invoke_switch_timer, &QTimer::timeout,
+            this, &DesktopMainWindow::invoke_switch_bgpage);
+    wallPaperGroup.invoke_switch_timer->start();
 }
 
 DesktopMainWindow::~DesktopMainWindow()
 {
     delete ui;
+}
+
+void DesktopMainWindow::invoke_switch_bgpage()
+{
+    /* switch the background page */
+    WallPaperAnimationHandler::ImagePoolEngine engine;
+    engine.image_list = &this->image_lists;
+    WallPaperAnimationHandler::process_switch(this->wallPaperGroup, engine);
 }
 
 void DesktopMainWindow::setup_apps()
@@ -56,21 +87,21 @@ void DesktopMainWindow::setup_apps()
     app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
 
     req.clear();
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < 8; i++){
         req.push_back({":/icons/sources/def_icon.png", QString::number(i), nullptr});
     }
 
     app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
 
     req.clear();
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < 8; i++){
         req.push_back({":/icons/sources/def_icon2.png", QString::number(i), nullptr});
     }
 
     app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
 
     QList<AppWidget*> docks;
-    docks << app_widgets[0] << app_widgets[11];
+    docks << app_widgets[0] << app_widgets[6];
     PageSetuper::add_to_dock(ui->downdock, this, docks);
 
 }
@@ -92,11 +123,6 @@ void DesktopMainWindow::showToast(const QString& message)
     toast->set_message(message);
 }
 
-void DesktopMainWindow::set_bg_image(const QPixmap &pixmap)
-{
-    wallpaperLabel->setPixmap(pixmap);
-}
-
 void DesktopMainWindow::mousePressEvent(QMouseEvent *event)
 {
     records.press = event->pos();
@@ -107,7 +133,7 @@ void DesktopMainWindow::mouseReleaseEvent(QMouseEvent *event)
     records.release = event->pos();
     int move_range = records.press.x() - records.release.x();
 
-    if(qAbs(move_range) < 50){return;}
+    if(qAbs(move_range) < 100){return;}
 
     move_range < 0 ? to_next_page() : to_prev_page();
 }
@@ -141,8 +167,13 @@ void DesktopMainWindow::to_prev_page()
 void DesktopMainWindow::resizeEvent(QResizeEvent *event)
 {
     QMainWindow::resizeEvent(event);
-    if (wallpaperLabel) {
-        wallpaperLabel->setGeometry(0, 0, width(), height());
+    /* makeups the full screen */
+    if (wallPaperGroup.wallpaperLabel) {
+        wallPaperGroup.wallpaperLabel->setGeometry(0, 0, width(), height());
+    }
+
+    if(wallPaperGroup.bufferpaperLabel){
+        wallPaperGroup.bufferpaperLabel->setGeometry(0, 0, width(), height());
     }
 }
 

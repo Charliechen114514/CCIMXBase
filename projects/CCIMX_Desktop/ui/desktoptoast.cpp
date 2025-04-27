@@ -13,12 +13,23 @@ DesktopToast::DesktopToast(QWidget *parent)
     setAttribute(Qt::WA_ShowWithoutActivating);
 
     label = new QLabel(this);
+    setStyleSheet(
+        "QLabel {"
+        "background: qlineargradient(spread:pad, "
+        "x1:0, y1:0, x2:1, y2:1, "
+        "stop:0 rgba(250, 250, 250, 100), "
+        "stop:1 rgba(230, 230, 230, 100));"
+        "border-radius: 10px;"
+        "}"
+    );
 
-    label->setStyleSheet("QLabel { background-color: rgba(0, 0, 0, 160); color: white; padding: 8px 16px; border-radius: 10px; }");
+    connect(this, &DesktopToast::do_show_toast,
+            this, &DesktopToast::set_message_impl);
 }
 
 void DesktopToast::start_animation()
 {
+    show();
     if(moveAnimation){
         moveAnimation->stop();
         moveAnimation->deleteLater();
@@ -34,18 +45,26 @@ void DesktopToast::start_animation()
 
 void DesktopToast::start_close_animation()
 {
-    if (isClosing) {
-        return;
-    }
-    isClosing = true;
+    show();
 
+    if(fadeAnimation){
+        fadeAnimation->stop();
+        fadeAnimation->deleteLater();
+    }
     fadeAnimation = new QPropertyAnimation(this, "pos");
     fadeAnimation->setDuration(animation_maintain_msec);
     fadeAnimation->setStartValue(endPos);
     fadeAnimation->setEndValue(startPos);
     connect(fadeAnimation, &QPropertyAnimation::finished, this, [this]() {
-        close();
-        isClosing = false;
+        isHandling = false;
+        hide();
+
+        /* see if there are still some issue to be solved */
+        if(!pools.isEmpty()){
+            isHandling = true;
+            QString msg = pools.dequeue();
+            emit do_show_toast(msg);
+        }
     });
 
     fadeAnimation->start(QAbstractAnimation::DeleteWhenStopped);
@@ -70,20 +89,28 @@ void DesktopToast::adjust_place()
         endPos = topCenter;
     }
 
-    startPos = QPoint(endPos.x(), endPos.y() - 50);
+    startPos = QPoint(endPos.x(), endPos.y() - 70);
     move(startPos);
 }
 
 void DesktopToast::set_message(const QString& message)
+{
+    pools.enqueue(message);
+    if(!isHandling){
+        isHandling = true;
+        QString msg = pools.dequeue();
+        emit do_show_toast(msg);
+    }
+}
+
+void DesktopToast::set_message_impl(const QString& message)
 {
     label->setText(message);
     label->adjustSize();
     resize(label->size());
     adjust_place();
     show();
-    /* forced to repaint */
     raise();
     start_animation();
-    repaint();
-    QTimer::singleShot(1950, this, &DesktopToast::start_close_animation); // 2秒后关闭
+    QTimer::singleShot(wait_time + animation_maintain_msec, this, &DesktopToast::start_close_animation); // 2秒后关闭
 }

@@ -12,13 +12,13 @@ class AppWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit AppWidget(QWidget *parent = nullptr);
     explicit AppWidget(const QPixmap& icon, const QString& name, QWidget *parent = nullptr);
     void     bindApp(ApplicationWrapper* wrapper){this->app_internal = wrapper;}
     ApplicationWrapper* get_app() const {return this->app_internal;}
     void     setIcon(const QPixmap& icon) noexcept;
     void     setAppName(const QString& name) noexcept;
     QPixmap  icon() const;
+    void     showIconOnly(bool st);
     QString  app_name() const;
     ~AppWidget();
 

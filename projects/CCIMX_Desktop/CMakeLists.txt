@@ -48,6 +48,8 @@ qt_add_executable(CCIMX_Desktop
     ${UiSubs}
     icons.qrc
     app_wrapper/pagesetuper.h app_wrapper/pagesetuper.cpp
+    ui/wallpaperanimationhandler.h ui/wallpaperanimationhandler.cpp
+    core/coretools.h core/coretools.cpp
 )
 
 target_link_libraries(CCIMX_Desktop

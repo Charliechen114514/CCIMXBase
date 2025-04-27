@@ -2,17 +2,6 @@
 #include "appwidget.h"
 #include "ui_appwidget.h"
 
-AppWidget::AppWidget(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::AppWidget)
-{
-    ui->setupUi(this);
-    ui->label->setAlignment(Qt::AlignCenter);
-    ui->icon_label->setAlignment(Qt::AlignCenter);
-    this->setAttribute(Qt::WA_TranslucentBackground);
-    this->setStyleSheet("background: transparent;");
-}
-
 /* oh, kotlin do a good job then :) */
 AppWidget::AppWidget(const QPixmap &icon, const QString &name, QWidget *parent)
     : QWidget(parent)
@@ -21,28 +10,48 @@ AppWidget::AppWidget(const QPixmap &icon, const QString &name, QWidget *parent)
     ui->setupUi(this);
     ui->label->setAlignment(Qt::AlignCenter);
     ui->icon_label->setAlignment(Qt::AlignCenter);
-    this->setAttribute(Qt::WA_TranslucentBackground);
-    this->setStyleSheet("background: transparent;");
-    setIcon(icon);
+    setAttribute(Qt::WA_TranslucentBackground);
     setAppName(name);
-
+    setIcon(icon);
+    layout()->setAlignment(Qt::AlignCenter);
+    ui->label->setScaledContents(true);
     ui->icon_label->installEventFilter(this);
+    ui->icon_label->setStyleSheet(
+        "QLabel {"
+        "background: qlineargradient(spread:pad, "
+        "x1:0, y1:0, x2:1, y2:1, "
+        "stop:0 rgba(150, 150, 150, 100), "
+        "stop:1 rgba(130, 130, 130, 255));"
+        "border-radius: 15px;"
+        "border: 2px solid rgba(0, 0, 0, 100);"
+        "}"
+    );
 }
 
 
 void AppWidget::setIcon(const QPixmap &icon) noexcept
 {
     ui->icon_label->setPixmap(icon);
+    int sz = icon.width();
+    ui->icon_label->setFixedSize(sz + 10, sz + 10);
 }
 
 void AppWidget::setAppName(const QString &name) noexcept
 {
     ui->label->setText(name);
+    ui->text_container->setFixedHeight(
+        ui->label->fontMetrics().height() + 10);
+
 }
 
 QPixmap AppWidget::icon() const
 {
     return ui->icon_label->pixmap();
+}
+
+void AppWidget::showIconOnly(bool st)
+{
+    st ? ui->text_container->hide() : ui->text_container->show();
 }
 
 QString AppWidget::app_name() const

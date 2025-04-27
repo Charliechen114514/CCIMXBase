@@ -11,24 +11,17 @@ DownDockWidget::DownDockWidget(QWidget *parent)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_StyledBackground, true);
-    setObjectName("DockCard");
-    // setStyleSheet(
-    //     "QWidget#DockCard {"
-    //     "background: rgba(255, 255, 255, 220);"
-    //     "border: 1px solid rgba(0, 0, 0, 30);"
-    //     "border-radius: 16px;"
-    //     "padding: 12px;"
-    //     "}"
-    // );
+    setAutoFillBackground(true);
+    setStyleSheet(
+        "DownDockWidget {"
+        "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, "
+        "        stop:0 rgba(40, 40, 40, 0.8), stop:1 rgba(100, 100, 100, 0.8));"
+        "    border-radius: 12px;"
+        "    border: 1px solid rgba(100, 100, 100, 0.5);"
+        "    padding: 16px;"
+        "}"
+        );
 
-    setStyleSheet("QWidget#DockCard { background-color: rgba(255, 0, 0, 255) !important; }");
-    // setStyleSheet("QWidget#DockCard { background: rgb(0, 0, 255); }");
-    qDebug() << "Current style sheet: " << styleSheet();
-    // QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect(this);
-    // shadow->setBlurRadius(20);
-    // shadow->setOffset(0, 4);
-    // shadow->setColor(QColor(0, 0, 0, 50));
-    // setGraphicsEffect(shadow);
 }
 
 void DownDockWidget::set_dock_apps(const QList<AppWidget *> &apps)
@@ -40,10 +33,8 @@ void DownDockWidget::set_dock_apps(const QList<AppWidget *> &apps)
 void DownDockWidget::replace_docks()
 {
     for(const auto& each_app : std::as_const(dock_apps)){
-        /* dock apps */
         layout()->addWidget(each_app);
     }
-    adjustSize();
 }
 
 DownDockWidget::~DownDockWidget()
