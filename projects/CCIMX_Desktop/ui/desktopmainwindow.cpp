@@ -5,6 +5,7 @@
 #include "ui_desktopmainwindow.h"
 #include "app_wrapper/applicationwrapper.h"
 #include "ui/desktoptoast.h"
+#include "builtin/ui/pagefactory.h"
 #include "ui/wallpaperanimationhandler.h"
 #include "ui/stackpage_switcher_animation.h"
 #include "app_wrapper/pagesetuper.h"
@@ -72,6 +73,10 @@ void DesktopMainWindow::invoke_switch_bgpage()
 
 void DesktopMainWindow::setup_apps()
 {
+    /* Home Page */
+    QWidget* homePage = PageFactory::build_home_page(this);
+    PageSetuper::create_specified_page(ui->stackedWidget, homePage);
+
     /* app page 1 */
     QList<PageSetuper::PageSetupSessionRequest> req;
     QString     pdf_path;
@@ -86,19 +91,8 @@ void DesktopMainWindow::setup_apps()
     req.push_back({":/icons/sources/pdf_browser.png", "PDF Browser", wrapper});
     app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
 
-    req.clear();
-    for(int i = 0; i < 8; i++){
-        req.push_back({":/icons/sources/def_icon.png", QString::number(i), nullptr});
-    }
-
-    app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
-
-    req.clear();
-    for(int i = 0; i < 8; i++){
-        req.push_back({":/icons/sources/def_icon2.png", QString::number(i), nullptr});
-    }
-
-    app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
+    app_widgets << PageFactory::build_pesudo_page(":/icons/sources/def_icon.png", 8, this);
+    app_widgets << PageFactory::build_pesudo_page(":/icons/sources/def_icon2.png", 8, this);
 
     QList<AppWidget*> docks;
     docks << app_widgets[0] << app_widgets[6];
@@ -116,6 +110,11 @@ void DesktopMainWindow::handle_app_status(AppWidget::AppStatus status)
     default:
     break;
     }
+}
+
+QStackedWidget *DesktopMainWindow::stackedWidget() const
+{
+    return ui->stackedWidget;
 }
 
 void DesktopMainWindow::showToast(const QString& message)

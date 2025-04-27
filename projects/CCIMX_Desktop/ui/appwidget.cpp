@@ -28,9 +28,12 @@ AppWidget::AppWidget(const QPixmap &icon, const QString &name, QWidget *parent)
     );
 }
 
-
 void AppWidget::setIcon(const QPixmap &icon) noexcept
 {
+    if(icon.isNull()){
+        ui->icon_label->clear();
+        return;
+    }
     ui->icon_label->setPixmap(icon);
     int sz = icon.width();
     ui->icon_label->setFixedSize(sz + 10, sz + 10);
@@ -38,6 +41,11 @@ void AppWidget::setIcon(const QPixmap &icon) noexcept
 
 void AppWidget::setAppName(const QString &name) noexcept
 {
+    if(name.isEmpty()){
+        ui->label->clear();
+        return;
+    }
+
     ui->label->setText(name);
     ui->text_container->setFixedHeight(
         ui->label->fontMetrics().height() + 10);
@@ -77,6 +85,9 @@ bool AppWidget::eventFilter(QObject* watched, QEvent* event)
 
 void AppWidget::do_daptch()
 {
+    if(dummy_state){
+        return; // dummy apps don't do anything
+    }
     if(!app_internal){
         qDebug() << "app is not binded, check the path";
         emit postAppStatus(AppStatus::AppNonExsits);

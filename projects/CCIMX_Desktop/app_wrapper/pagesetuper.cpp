@@ -33,6 +33,12 @@ PageSetuper::create_one_app_only_page_append(
         j++;
     }
 
+    while(j < MAX_WIDTH + MAX_HEIGHT){
+        /* this is a temp dummy apps */
+        gridLayout->addWidget(new QWidget(mainWindow), j / MAX_WIDTH, j % MAX_HEIGHT);
+        j++;
+    }
+
     page->setLayout(gridLayout);
     widget->addWidget(page);
 

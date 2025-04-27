@@ -14,6 +14,7 @@ class QLabel;
 class DesktopToast;
 class ApplicationWrapper;
 class QTimer;
+class QStackedWidget;
 class DesktopMainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ public:
     ~DesktopMainWindow();
     void invoke_switch_bgpage();
     void handle_app_status(AppWidget::AppStatus status);
+    QStackedWidget* stackedWidget() const;
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
@@ -61,7 +63,7 @@ private:
         QPoint                  release;
     }records;
 
-    static constexpr const unsigned short switch_bg_time = 5000;
+    static constexpr const unsigned int switch_bg_time = 20000;
 
 };
 #endif // DESKTOPMAINWINDOW_H
