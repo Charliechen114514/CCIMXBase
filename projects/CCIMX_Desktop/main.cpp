@@ -8,5 +8,7 @@ int main(int argc, char *argv[])
     /* this is the main entry mainwindow */
     DesktopMainWindow w;
     w.show();
+    /* then emit the post settings */
+    w.post_inits();
     return a.exec();
 }

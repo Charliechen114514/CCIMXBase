@@ -10,6 +10,7 @@
 #include "ui/stackpage_switcher_animation.h"
 #include "app_wrapper/pagesetuper.h"
 #include "core/coretools.h"
+#include "ui/appcardwidget.h"
 
 #include <QTimer>
 DesktopMainWindow::DesktopMainWindow(QWidget *parent)
@@ -77,6 +78,7 @@ void DesktopMainWindow::setup_apps()
     QWidget* homePage = PageFactory::build_home_page(this);
     PageSetuper::create_specified_page(ui->stackedWidget, homePage);
 
+
     /* app page 1 */
     QList<PageSetuper::PageSetupSessionRequest> req;
     QString     pdf_path;
@@ -100,6 +102,14 @@ void DesktopMainWindow::setup_apps()
 
 }
 
+void DesktopMainWindow::invoke_appcards_init()
+{
+    /* sequencely invoke the work */
+    for(const auto& each_app_cards: std::as_const(this->app_cards)){
+        each_app_cards->invoke_preLaunch_work();
+    }
+}
+
 void DesktopMainWindow::handle_app_status(AppWidget::AppStatus status)
 {
     switch(status)
@@ -115,6 +125,14 @@ void DesktopMainWindow::handle_app_status(AppWidget::AppStatus status)
 QStackedWidget *DesktopMainWindow::stackedWidget() const
 {
     return ui->stackedWidget;
+}
+
+void DesktopMainWindow::post_inits()
+{
+    connect(this, &DesktopMainWindow::deptach_app_cards_init,
+            this, &DesktopMainWindow::invoke_appcards_init);
+
+    emit deptach_app_cards_init();
 }
 
 void DesktopMainWindow::showToast(const QString& message)

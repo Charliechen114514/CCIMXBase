@@ -15,11 +15,15 @@ class DesktopToast;
 class ApplicationWrapper;
 class QTimer;
 class QStackedWidget;
+
+class AppCardWidget;
+
 class DesktopMainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    friend class PageFactory;
     struct WallPaperGroup{
         QWidget*                shoule_be_lower;
         /* wall paper label is using in display the current */
@@ -32,12 +36,19 @@ public:
     DesktopMainWindow(QWidget *parent = nullptr);
     /* for mainWindow, this is the global messages */
     void showToast(const QString& message);
+    inline DesktopToast*   desktop_toast() const {return toast;}
     void to_next_page();
     void to_prev_page();
     ~DesktopMainWindow();
     void invoke_switch_bgpage();
     void handle_app_status(AppWidget::AppStatus status);
     QStackedWidget* stackedWidget() const;
+    /* post inits do the job of emit signals for apps */
+    void post_inits();
+
+signals:
+    /* To async init the app cards, signals will be sent */
+    void deptach_app_cards_init();
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
@@ -65,5 +76,8 @@ private:
 
     static constexpr const unsigned int switch_bg_time = 20000;
 
+    /* Appcards */
+    QList<AppCardWidget*>       app_cards;
+    void                        invoke_appcards_init();
 };
 #endif // DESKTOPMAINWINDOW_H

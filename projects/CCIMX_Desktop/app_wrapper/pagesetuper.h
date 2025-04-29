@@ -34,6 +34,7 @@ void                create_specified_page(
 
 
 void   add_to_dock(DownDockWidget* downdock, DesktopMainWindow *mainWindow, const QList<AppWidget*>& widgets);
+
 };
 
 #endif // PAGESETUPER_H

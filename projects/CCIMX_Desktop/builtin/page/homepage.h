@@ -14,6 +14,9 @@ class HomePage : public QWidget
 
 public:
     explicit HomePage(QWidget *parent = nullptr);
+
+    QWidget* expected_appcards_widgets() const;
+
     ~HomePage();
 
 private:

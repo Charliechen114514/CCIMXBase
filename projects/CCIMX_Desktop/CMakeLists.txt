@@ -49,6 +49,15 @@ set(BuiltInPackage
     builtin/ui/clockwidget.h builtin/ui/clockwidget.cpp builtin/ui/clockwidget.ui
     builtin/ui/digitaltimewidget.h builtin/ui/digitaltimewidget.cpp)
 
+set(NetCardWidget
+
+)
+
+set(BONUS_APPCARD
+
+)
+
+
 qt_add_executable(CCIMX_Desktop
     WIN32 MACOSX_BUNDLE
     main.cpp
@@ -58,6 +67,11 @@ qt_add_executable(CCIMX_Desktop
     ${CoreSubs}
     ${BuiltInPackage}
     icons.qrc
+    ui/appcardwidget.h ui/appcardwidget.cpp ui/appcardwidget.ui
+    builtin/gadgets/netcardgadget.h builtin/gadgets/netcardgadget.cpp
+    builtin/sources/netcard/netcards_src.qrc
+
+
 )
 
 target_link_libraries(CCIMX_Desktop

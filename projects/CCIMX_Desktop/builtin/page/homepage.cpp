@@ -9,6 +9,11 @@ HomePage::HomePage(QWidget *parent)
     ui->left_bottom_widget->bindClockWidget(ui->left_top_widget);
 }
 
+QWidget *HomePage::expected_appcards_widgets() const
+{
+    return ui->right_bottom_widget;
+}
+
 HomePage::~HomePage()
 {
     delete ui;

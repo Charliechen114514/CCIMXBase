@@ -8,14 +8,19 @@ AppWidget::AppWidget(const QPixmap &icon, const QString &name, QWidget *parent)
     , ui(new Ui::AppWidget)
 {
     ui->setupUi(this);
+    setAttribute(Qt::WA_TranslucentBackground);
+
     ui->label->setAlignment(Qt::AlignCenter);
     ui->icon_label->setAlignment(Qt::AlignCenter);
-    setAttribute(Qt::WA_TranslucentBackground);
+    layout()->setAlignment(Qt::AlignCenter);
+
+    ui->label->setScaledContents(true);
     setAppName(name);
     setIcon(icon);
-    layout()->setAlignment(Qt::AlignCenter);
-    ui->label->setScaledContents(true);
+
     ui->icon_label->installEventFilter(this);
+
+    /* App Icon Style */
     ui->icon_label->setStyleSheet(
         "QLabel {"
         "background: qlineargradient(spread:pad, "
