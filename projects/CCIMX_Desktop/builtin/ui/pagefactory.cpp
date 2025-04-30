@@ -30,6 +30,7 @@ QList<AppWidget *> PageFactory::build_pesudo_page(
 
 #include <QGridLayout>
 #include "builtin/gadgets/netcardgadget.h"
+#include "builtin/gadgets/localweathercard.h"
 QList<AppCardWidget*> PageFactory::
 place_appcards_in_empty_widgets(
         DesktopMainWindow *mainWindow, QWidget *placed)
@@ -52,6 +53,10 @@ place_appcards_in_empty_widgets(
     col++;
     app_cards << netcard;
 
+    LocalWeatherCard*   weather_card = new LocalWeatherCard(mainWindow->desktop_toast(), placed);
+    gridLayout->addWidget(weather_card, row, col);
+    col++;
+    app_cards << weather_card;
     return app_cards;
 }
 

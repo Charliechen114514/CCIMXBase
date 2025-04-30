@@ -35,11 +35,7 @@ protected:
     /* each concrete app is required to reset the app status */
     virtual void       postAppCardWidget() = 0;
     DesktopToast*      binding_toast;
-
-private:
     Ui::AppCardWidget*  ui;
-
-
     // QObject interface
 public:
     bool eventFilter(QObject *watched, QEvent *event) override;

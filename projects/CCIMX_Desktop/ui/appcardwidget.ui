@@ -46,10 +46,16 @@
     </spacer>
    </item>
    <item>
-    <widget class="QLabel" name="icons_label">
-     <property name="text">
-      <string/>
-     </property>
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="icons_label">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

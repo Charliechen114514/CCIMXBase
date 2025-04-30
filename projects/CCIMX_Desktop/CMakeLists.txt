@@ -49,13 +49,17 @@ set(BuiltInPackage
     builtin/ui/clockwidget.h builtin/ui/clockwidget.cpp builtin/ui/clockwidget.ui
     builtin/ui/digitaltimewidget.h builtin/ui/digitaltimewidget.cpp)
 
-set(NetCardWidget
-
-)
-
 set(BONUS_APPCARD
-
+    ui/appcardwidget.h ui/appcardwidget.cpp ui/appcardwidget.ui
+    builtin/gadgets/netcardgadget.h builtin/gadgets/netcardgadget.cpp
+    builtin/sources/netcard/netcards_src.qrc
+    builtin/gadgets/localweathercard.h builtin/gadgets/localweathercard.cpp
 )
+
+set(BUILT_IN_ICM20608_Support
+    builtin/core/icm20608/icm20608_adapter.h
+    builtin/core/icm20608/icm20608_adapter.cpp
+    builtin/core/icm20608/icm20608.h)
 
 
 qt_add_executable(CCIMX_Desktop
@@ -66,11 +70,10 @@ qt_add_executable(CCIMX_Desktop
     ${UiSubs}
     ${CoreSubs}
     ${BuiltInPackage}
+    ${BONUS_APPCARD}
+    ${BUILT_IN_ICM20608_Support}
     icons.qrc
-    ui/appcardwidget.h ui/appcardwidget.cpp ui/appcardwidget.ui
-    builtin/gadgets/netcardgadget.h builtin/gadgets/netcardgadget.cpp
-    builtin/sources/netcard/netcards_src.qrc
-
+    builtin/sources/localweather/localweather.qrc
 
 )
 
