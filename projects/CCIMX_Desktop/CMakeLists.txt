@@ -10,9 +10,17 @@ get_filename_component(COMPILER_NAME ${CMAKE_CXX_COMPILER} NAME)
 # This part aims to find the Cross compile
 # If you only get the arm mupdf compiles, do notice to select the
 # correct kits with correct arch and compilers
+set(CCIMX_ALL_RELEASE_DIR_BASE "/home/charliechen/imx6ull/qt683_project/CCDesktopRelease")
+
 if(COMPILER_NAME MATCHES "arm.*-g\\+\\+")
     add_compile_definitions(ARM_BUILD)
+    set(CCIMX_ALL_RELEASE_DIR ${CCIMX_ALL_RELEASE_DIR_BASE}/arm32/ CACHE PATH "Deploy the install root directory")
+    set(CCIMX_EXTERNAL_APP_BASE_DIR ".")
+else()
+    set(CCIMX_ALL_RELEASE_DIR ${CCIMX_ALL_RELEASE_DIR_BASE}/x86/ CACHE PATH "Deploy the install root directory")
+    set(CCIMX_EXTERNAL_APP_BASE_DIR ${CCIMX_ALL_RELEASE_DIR})
 endif()
+
 
 
 include_directories(
@@ -74,7 +82,11 @@ qt_add_executable(CCIMX_Desktop
     ${BUILT_IN_ICM20608_Support}
     icons.qrc
     builtin/sources/localweather/localweather.qrc
+)
 
+add_custom_command(TARGET CCIMX_Desktop POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${CCIMX_ALL_RELEASE_DIR}
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:CCIMX_Desktop> ${CCIMX_ALL_RELEASE_DIR}
 )
 
 target_link_libraries(CCIMX_Desktop
@@ -82,6 +94,12 @@ target_link_libraries(CCIMX_Desktop
         Qt::Core
         Qt::Widgets
         Qt6::Network
+)
+
+
+target_compile_definitions(
+    CCIMX_Desktop PRIVATE
+    _EXTERNAPP_INSTALL_DIR=\"${CCIMX_EXTERNAL_APP_BASE_DIR}\"
 )
 
 include(GNUInstallDirs)
@@ -98,3 +116,12 @@ qt_generate_deploy_app_script(
     NO_UNSUPPORTED_PLATFORM_ERROR
 )
 install(SCRIPT ${deploy_script})
+
+message(STATUS
+        "Ready to build the Weather APP due to the INCLUDE_WEATHER_APP")
+add_subdirectory(extern_app/WeatherApp)
+
+message(STATUS
+        "Ready to build the PDF Browser due to the INCLUDE_PDF_BROWSER")
+add_subdirectory(extern_app/pdfReader)
+

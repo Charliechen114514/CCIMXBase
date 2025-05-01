@@ -78,20 +78,7 @@ void DesktopMainWindow::setup_apps()
     QWidget* homePage = PageFactory::build_home_page(this);
     PageSetuper::create_specified_page(ui->stackedWidget, homePage);
 
-
-    /* app page 1 */
-    QList<PageSetuper::PageSetupSessionRequest> req;
-    QString     pdf_path;
-#ifdef ARM_BUILD
-    pdf_path = "./pdfReader";
-#else
-    pdf_path = "/home/charliechen/imx6ull/qt683_project/CCIMX_Desktop/build/pdfReader";
-#endif
-    ApplicationWrapper* wrapper = new ApplicationWrapper(this, this);
-    wrapper->set_app_path(pdf_path);
-    app_wrapper << wrapper;
-    req.push_back({":/icons/sources/pdf_browser.png", "PDF Browser", wrapper});
-    app_widgets << PageSetuper::create_one_app_only_page_append(ui->stackedWidget, this, req);
+    app_widgets << PageSetuper::create_real_app(this);
 
     app_widgets << PageFactory::build_pesudo_page(":/icons/sources/def_icon.png", 8, this);
     app_widgets << PageFactory::build_pesudo_page(":/icons/sources/def_icon2.png", 8, this);

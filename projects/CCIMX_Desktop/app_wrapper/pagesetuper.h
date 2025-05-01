@@ -27,6 +27,9 @@ QList<AppWidget*>   create_one_app_only_page_append(
     QStackedWidget* widget, DesktopMainWindow *mainWindow,
     const QList<PageSetupSessionRequest>& sessionRequest);
 
+QList<AppWidget*>   create_real_app(DesktopMainWindow *mainWindow);
+
+
 /* this create a page specified for user defined */
 void                create_specified_page(
     QStackedWidget* widget, QWidget* paged_widget

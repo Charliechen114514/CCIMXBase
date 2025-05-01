@@ -64,8 +64,33 @@ void PageSetuper::add_to_dock(
 }
 
 /* All mappings are defined, thus add directly is OK */
+#include "app_wrapper/applicationwrapper.h"
 void PageSetuper::
 create_specified_page(QStackedWidget *widget, QWidget *paged_widget)
 {
     widget->addWidget(paged_widget);
+}
+
+QList<AppWidget *> PageSetuper::create_real_app(DesktopMainWindow* mainWindow)
+{
+
+    QList<PageSetuper::PageSetupSessionRequest> req;
+
+    /* app page of PDF Browser */
+    QString     pdf_path;
+    pdf_path = _EXTERNAPP_INSTALL_DIR "/pdfReader";
+    ApplicationWrapper* wrapper = new ApplicationWrapper(mainWindow, mainWindow);
+    wrapper->set_app_path(pdf_path);
+    mainWindow->install_remote_appwrapper(wrapper);
+    req.push_back({":/icons/sources/pdf_browser.png", "PDF Browser", wrapper});
+
+    /* app page of the weather app */
+    QString weather_app_path;
+    weather_app_path = _EXTERNAPP_INSTALL_DIR "/WeatherApp";
+    wrapper = new ApplicationWrapper(mainWindow, mainWindow);
+    wrapper->set_app_path(weather_app_path);
+    mainWindow->install_remote_appwrapper(wrapper);
+    req.push_back({":/icons/sources/weather_app.png", "Weather App", wrapper});
+
+    return PageSetuper::create_one_app_only_page_append(mainWindow->stackedWidget(), mainWindow, req);
 }

@@ -5,7 +5,7 @@
 #include "icm20608.h"
 #include <fcntl.h>
 #include <unistd.h>
-
+#include <iostream>
 void ICM20608::bind_dev_file()
 {
     /* bind the file */
@@ -22,8 +22,13 @@ bool ICM20608::get_package_sync(ICM20608AppData& empty)
     }
 
     ICM20608Data icm_data;
-    ::read(private_fd, &icm_data, sizeof(ICM20608Data));
-
+    ssize_t ret = ::read(private_fd, &icm_data, sizeof(ICM20608Data));
+    // std::cout  << ret << " " << sizeof(ICM20608Data);
+    // if (ret != sizeof(ICM20608Data)) {
+    //     /* error reading, but almostly couldn't be! */
+    //     return false;
+    // }
+    (void)ret;
     /* raw data */
     empty.rol.x = (float)(icm_data.rol.x) / 16.4f;
     empty.rol.y = (float)(icm_data.rol.y) / 16.4f;

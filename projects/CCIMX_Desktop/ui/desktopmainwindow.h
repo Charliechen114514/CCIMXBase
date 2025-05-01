@@ -41,6 +41,7 @@ public:
     void to_prev_page();
     ~DesktopMainWindow();
     void invoke_switch_bgpage();
+    void inline install_remote_appwrapper(ApplicationWrapper* wrapper){app_wrapper << wrapper;}
     void handle_app_status(AppWidget::AppStatus status);
     QStackedWidget* stackedWidget() const;
     /* post inits do the job of emit signals for apps */
