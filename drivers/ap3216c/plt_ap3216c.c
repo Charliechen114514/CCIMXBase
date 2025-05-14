@@ -115,12 +115,13 @@ static int ap3216c_open(struct inode * inode, struct file* pfile)
 
 static ssize_t ap3216c_read(struct file *filp, char __user *buf, size_t cnt, loff_t *off)
 {
-	long err = 0;
 	AP3216C_DriverData* dev = (AP3216C_DriverData*)filp->private_data;
 	
 	analysis_readdata(dev);
-	err = copy_to_user(buf, &dev->cached_data, sizeof(AP3216C_DriverData));
-	return err;
+	if(copy_to_user(buf, &dev->cached_data, sizeof(AP3216CData))){
+        return -EFAULT;
+    }
+	return sizeof(AP3216CData);
 }
 
 static struct file_operations ap3216c_op = {

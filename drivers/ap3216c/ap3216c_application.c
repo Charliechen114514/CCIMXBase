@@ -23,11 +23,7 @@ int main(int argc, char const *argv[])
     while(1)
     {
         int result = read(fd, &data, sizeof(data));
-        if(!result){
-            printf("get the res, ir: %d, als:%d, ps:%d\n", data.ir, data.als, data.ps);
-        }else{
-            printf("error!\n");
-        }
+        printf("get the res, ir: %d, als:%d, ps:%d\n", data.ir, data.als, data.ps);
         sleep(1);
     }
 

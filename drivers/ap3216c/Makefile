@@ -1,5 +1,5 @@
 KER_DIR := /home/charliechen/imx6ull/linux-imx
-RTFS_MODULE_TEST_PATH := ~/imx6ull/nfs/rootfs/module_test/
+RTFS_MODULE_TEST_PATH := ~/imx6ull/nfs/rootfs/home/charliechen/module_test/
 CURRENTDIR := $(shell pwd)
 MODULE_NAME	:= ap3216c
 obj-m += ${MODULE_NAME}.o
@@ -21,5 +21,5 @@ clean:
 	rm -f ${MODULE_NAME}_application
 
 upload:
-	cp ${MODULE_NAME}_application $(RTFS_MODULE_TEST_PATH)
-	cp $(MODULE_NAME).ko $(RTFS_MODULE_TEST_PATH)
+	sudo cp ${MODULE_NAME}_application $(RTFS_MODULE_TEST_PATH)
+	sudo cp $(MODULE_NAME).ko $(RTFS_MODULE_TEST_PATH)
