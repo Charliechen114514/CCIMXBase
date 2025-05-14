@@ -1,1 +1,0 @@
-savedcmd_/home/charliechen/imx6ull/kernel_programming/module_base/module_params/modules.order := {   echo /home/charliechen/imx6ull/kernel_programming/module_base/module_params/module_params.o; :; } > /home/charliechen/imx6ull/kernel_programming/module_base/module_params/modules.order

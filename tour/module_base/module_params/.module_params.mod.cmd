@@ -1,1 +1,0 @@
-savedcmd_/home/charliechen/imx6ull/kernel_programming/module_base/module_params/module_params.mod := printf '%s\n'   module_params.o | awk '!x[$$0]++ { print("/home/charliechen/imx6ull/kernel_programming/module_base/module_params/"$$0) }' > /home/charliechen/imx6ull/kernel_programming/module_base/module_params/module_params.mod

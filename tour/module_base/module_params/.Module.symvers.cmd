@@ -1,1 +1,0 @@
-savedcmd_/home/charliechen/imx6ull/kernel_programming/module_base/module_params/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/charliechen/imx6ull/kernel_programming/module_base/module_params/Module.symvers -T /home/charliechen/imx6ull/kernel_programming/module_base/module_params/modules.order -i Module.symvers -e 
